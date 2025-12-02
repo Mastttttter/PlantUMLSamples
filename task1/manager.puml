@@ -1,0 +1,24 @@
+@startuml manager
+actor 系统管理员 as manager
+usecase 系统维护 as keepSys
+usecase 添加图书信息 as addBookInf
+usecase 图书管理 as bookMan
+usecase 编辑图书信息 as editBookInf
+usecase 查询图书信息 as queryBookInf
+usecase 登陆系统 as login
+usecase 用户管理 as userMan
+usecase 查询用户信息 as queryUserInf
+usecase 编辑用户信息 as editUserInf
+usecase 添加用户信息 as addUserInf
+bookMan ..> addBookInf : <<include>>
+bookMan ..> editBookInf : <<include>>
+bookMan ..> queryBookInf : <<include>>
+bookMan ..> login : <<include>>
+userMan ..> login : <<include>>
+userMan ..> queryUserInf : <<include>>
+userMan ..> editUserInf : <<include>>
+userMan ..> addUserInf : <<include>>
+manager --> bookMan
+manager --> userMan
+manager --> keepSys
+@enduml

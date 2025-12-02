@@ -1,0 +1,14 @@
+@startuml worker
+actor 图书管理员 as manager
+usecase 图书归还 as return 
+usecase 收取罚款 as getPunishment
+usecase 图书出借 as lend
+usecase 处理预约 as dealOrder
+usecase 检查读者账户 as checkAccount
+getPunishment ..> return : <<extend>>
+dealOrder ..> lend : <<extend>>
+lend ..> checkAccount : <<include>>
+manager --> return 
+manager --> lend 
+manager --> dealOrder
+@enduml

@@ -1,2 +1,27 @@
 @startuml reader
+actor 学生 as student
+actor 教师 as teacher
+actor 借阅着 as reader
+student --|> reader
+teacher --|> reader 
+usecase 借阅图书 as borrow
+usecase 查询图书 as query 
+usecase 预约图书 as order
+usecase 登录系统 as login
+usecase 查询记录 as queryRecord
+usecase 归还图书 as return 
+usecase 缴纳罚款 as punish
+note "查询记录，就\n是查询借阅者\n以往图书借阅\n情况" as n1
+borrow ..> query : <<include>>
+order ..> query : <<include>>
+order ..> login : <<include>>
+queryRecord ..> login : <<include>>
+punish ..> return : <<extend>>
+queryRecord .. n1
+reader --> borrow
+reader --> query
+reader --> order
+reader --> login 
+reader --> queryRecord
+reader --> return 
 @enduml

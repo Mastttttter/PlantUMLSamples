@@ -1,0 +1,65 @@
+@startuml LibManagementSys
+class Item{
+    id:Integer
+    create()
+    destroy()
+    find()
+    update()
+    find_on_reservation()
+    find_on_title()
+}
+class Title{
+    barcode:String
+    ISBN:String
+    name:String
+    author:String
+    total_number:Integer 
+    reservations:Integer 
+    borrowed_number:Integer 
+    isAllForBorrow:Bollean
+    Create()
+    Find()
+    Destroy()
+}
+class Reservation{
+    date:Date=CurrentDate
+    UserID:String 
+    number:Integer 
+    ISBN:String
+    create()
+    find()
+    destroy()
+}
+class Borrower{
+    userID:String
+    name:String
+    password:String
+    email:String
+    maxBook:Integer 
+    maxDay:Integer 
+    borrowed_book
+    create()
+    dinf()
+    destroy()
+    returmbook()
+    check_id_max()
+    borrowbook()
+    modifypassword()
+}
+class Loan{
+    date:Date=CurrentDate
+    money:Currency
+    IsPay:Item
+    Item:Item
+    borrower:Borrower
+    create()
+    find()
+    destroy()
+    pay()
+}
+Loan "0..*"--"1"Item
+Item "0..*"--"1" Title
+Title "1"--"0..*"Reservation
+Reservation "0..*"--"1"Borrower
+Borrower"1"--"0..*"Loan
+@enduml

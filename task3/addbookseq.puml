@@ -1,0 +1,15 @@
+@startuml addbookseq
+header 添加图书
+footer 添加图书
+actor "Admin:系统管理员" as manager
+participant ":AddBookInfoForm" as add
+participant ":Title" as title
+participant ":Item"  as item
+manager -> add : 1.添加图书
+note right of manager
+检查是否书目已经存在
+end note
+add->title:2.查询图书
+title--> add:3.查询成功 
+add->item:4.添加入库
+@enduml

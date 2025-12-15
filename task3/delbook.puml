@@ -1,0 +1,5 @@
+@startuml delbook
+header 删除书籍
+footer 删除书籍
+actor "Admin"
+@enduml

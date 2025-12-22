@@ -2,6 +2,22 @@
 header 借阅者活动图
 footer 借阅者活动图
 start 
-登录系统;
-
+: 登录系统;
+fork 
+:账号管理;
+fork 
+:查询借阅，预约记录;
+fork again 
+:修改密码;
+end merge
+fork again 
+:查询图书;
+fork
+:查询图书信息;
+fork again
+:预约图书;
+end merge
+end merge 
+:退出系统;
+stop
 @enduml

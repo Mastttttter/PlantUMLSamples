@@ -1,0 +1,21 @@
+@startuml bookManager
+header 图书管理员活动图
+footer 图书管理员活动图
+start
+:登录系统;
+fork
+:借书;
+if(是否能借) then (NO)
+stop
+else (YES)
+endif
+fork again 
+:还书;
+if(是否逾期) then (NO)
+else (YES)
+:缴纳罚款;
+endif
+end merge 
+:更新读者信息;
+stop
+@endul

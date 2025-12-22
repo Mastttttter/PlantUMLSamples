@@ -1,0 +1,20 @@
+@startuml
+(*) --> "步骤1: 用户登录"
+--> if "验证通过?" then
+  -->[yes] "步骤2: 加载主页"
+  --> (*)
+else
+  -->[no] "步骤3: 显示错误"
+  --> "步骤1: 用户登录"
+endif
+
+note right of "步骤2: 加载主页"
+  可嵌入序列图：
+  {{ 
+    @startuml
+    User -> System : GET /home
+    System --> User : HTML
+    @enduml
+  }}
+end note
+@enduml

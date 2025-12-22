@@ -1,0 +1,18 @@
+@startuml leanbookseq
+header 图书管理员借书时序图
+footer 图书管理员借书时序图
+actor ":图书管理员" as admin
+participant ":LendBookForm" as lend
+participant ":Title" as titl
+participant ":Borrower" as borrower 
+participant ":Loan" as loan
+participant ":Item" as item
+admin -> lend : 1:lend book
+lend -> titl:2:find(String)
+titl --> lend:3:return true
+lend ->item :4:find_on_title(Title)
+item --> lend :5:return true
+lend -> borrower : 6:find(String)
+borrower--> lend:7:return true
+lend -> loan : 8:create(Borrower,Item)
+@enduml

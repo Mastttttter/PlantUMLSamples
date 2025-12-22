@@ -1,0 +1,22 @@
+@startuml readerAccount
+header 读者账户状态图
+footer 读者账户状态图
+hide empty description
+state "未借书状态" as notLoan
+notLoan: entry/ 未借书
+notLoan : exit/ 借书或者预约
+state "已借书状态" as hadLoan
+hadLoan: entry/ 借书或者预约
+hadLoan : exit/ 书全还
+state "不能借书状态" as cannotLean
+cannotLean: entry/ 逾期罚款
+cannotLean : 借书数量已满
+cannotLean : exit/ 缴纳罚款或者还书
+state "帐号销毁" as del
+del: entry/ 学生毕业
+[*] --> notLoan 
+notLoan --> hadLoan 
+hadLoan --> cannotLean
+cannotLean --> del 
+del --> [*]
+@enduml 

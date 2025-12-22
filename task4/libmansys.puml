@@ -1,0 +1,18 @@
+@startuml libManSys
+header 图书管理系统的状态图
+footer 图书管理系统的状态图
+hide empty description
+state "可借出状态" as canLend
+state "预约状态" as order
+state "已借出状态" as loan
+state "废书处理或者图书删除" as del
+[*] --> canLend
+canLend --> del
+del --> [*]
+canLend --> loan : 借出图书
+loan --> canLend : 归还图书
+canLend --> order : 预约
+order --> canLend : 取消预约
+order --> canLend : 预约过期
+order --> loan : 借出
+@enduml

@@ -1,5 +1,15 @@
 @startuml delbook
 header 删除书籍
 footer 删除书籍
-actor "Admin"
+actor "Admin:系统管理员" as admin
+participant ":DeleteBookInfoFrom" as del
+participant ":Title" as titl
+participant ":Item" as item
+admin -> del : 1:remove Item
+del -> titl : 2:find(String)
+titl --> del : 3:return true
+del -> item : 4:find_on_title
+item --> del :5: return true
+del -> item : 6:destroy()
+del -> titl :7:destroy()
 @enduml

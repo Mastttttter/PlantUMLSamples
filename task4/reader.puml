@@ -1,0 +1,7 @@
+@startuml reader
+header 借阅者活动图
+footer 借阅者活动图
+start 
+登录系统;
+
+@enduml
